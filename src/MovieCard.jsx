@@ -1,5 +1,5 @@
 import './MovieCard.css'
-
+//individual cards that have movie title, image, and rating
 function MovieCard (props) {
     return(
         <>

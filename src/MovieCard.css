@@ -1,9 +1,11 @@
 img {width: 250px;}
+img:hover {width: 260px;}
 
 .card {
     text-wrap: wrap;
     margin: 30px;
     width: 280px;
+    height: 450px;
 }
 
 h3 {}

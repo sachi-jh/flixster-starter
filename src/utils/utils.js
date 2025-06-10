@@ -1,4 +1,4 @@
-
+//reformats movie data into array with Title, Image, Rating
 function parseMovieData (data){
     let movieArr = []
     data.results.forEach(element => {
@@ -7,7 +7,6 @@ function parseMovieData (data){
                         rating: element.vote_average} 
         movieArr.push(movieObj)
     });
-    console.log(movieArr)
     return movieArr
 }
 

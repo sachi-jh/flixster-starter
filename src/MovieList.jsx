@@ -1,14 +1,11 @@
 import MovieCard from "./MovieCard"
-import { parseMovieData } from "./utils/utils"
 import './MovieList.css'
-
+//component that renders the whole grid of cards with movie details
 function MovieList ({data}){
-    const formattedData = parseMovieData(data)
-    //console.log(formattedData)
     return(
         <>
         <div className="card-list">
-            {formattedData.map(movie =>(
+            {data.map(movie =>(
                 <div className="" key={movie}>
                     <MovieCard name={movie.title} img={movie.image} rating={movie.rating}/>
             </div>
