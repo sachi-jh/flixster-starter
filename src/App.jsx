@@ -2,12 +2,14 @@ import { useState } from 'react'
 import './App.css'
 import MovieList from './MovieList'
 import data from './data/data.js'
+import Search from './Search.jsx'
 
 const App = () => {
   console.log(data.results)
   return (
     <div className="App">
       <header>
+        <Search/>
         <h1>Movies</h1>
       </header>
       <main>
