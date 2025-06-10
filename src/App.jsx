@@ -8,7 +8,7 @@ const App = () => {
   console.log(data.results)
   return (
     <div className="App">
-      <header>
+      <header >
         <Search/>
         <h1>Movies</h1>
       </header>

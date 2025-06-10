@@ -1,11 +1,13 @@
-
+import './MovieCard.css'
 
 function MovieCard (props) {
     return(
         <>
-        <h3>Title: {props.name}</h3>
-        <img src={`https://image.tmdb.org/t/p/w400${props.img}`}/>
-        <p>Rating: {props.rating}</p>
+        <div className='card'>
+            <img src={`https://image.tmdb.org/t/p/w400${props.img}`}/>
+            <h3>{props.name}</h3>
+            <p>Rating: {props.rating}</p>
+        </div>
         </>
     )
 }

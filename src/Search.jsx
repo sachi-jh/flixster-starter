@@ -3,7 +3,7 @@ const Search =()=> {
         <>
         <input></input>
         <button>Search</button>
-        <button>Clearn</button>
+        <button>Clear</button>
         </>
     )
 }
