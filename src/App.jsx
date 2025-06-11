@@ -6,12 +6,19 @@ import Search from "./Search.jsx";
 
 const App = () => {
   const [data, setData] = useState([]);
+  const [pageCount, setPageCount] = useState(1)
+
+  const loadMoreButtonClick = () => {
+      setPageCount(pageCount +1)
+      console.log(pageCount)      
+  }
+
   //fetch data pages and format using parseMovieData which boils it down to Title, Image, Rating
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc",
+          `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageCount}&sort_by=popularity.desc`,
           {
             method: "GET",
             headers: {
@@ -22,13 +29,14 @@ const App = () => {
           }
         );
         const dataFetched = await response.json();
-        setData(parseMovieData(dataFetched));
+        const newData = parseMovieData(dataFetched)
+        setData([...data,...newData]);
       } catch (err) {
         console.log(err);
       }
     };
     fetchData();
-  }, []);
+  }, [pageCount]);
 
   return (
     <div className="App">
@@ -38,6 +46,7 @@ const App = () => {
       </header>
       <main>
         <MovieList data={data} />
+        <button onClick={loadMoreButtonClick}>Load More</button>
       </main>
       <footer></footer>
     </div>
