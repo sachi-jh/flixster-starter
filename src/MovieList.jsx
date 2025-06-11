@@ -11,8 +11,8 @@ function MovieList ({data}){
         <>
         <div>
             <div className="card-list">
-                {data.map(movie =>(
-                    <div className="" key={movie}>
+                {data.map((movie, i) =>(
+                    <div className="" key={i}>
                         <MovieCard name={movie.title} img={movie.image} rating={movie.rating}/>
                 </div>
                 ))}

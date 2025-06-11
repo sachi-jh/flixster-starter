@@ -6,13 +6,14 @@ function parseMovieData(data) {
       title: element.original_title,
       image: element.poster_path,
       rating: element.vote_average,
+      release_date: element.release_date
     };
     movieArr.push(movieObj);
   });
   return movieArr;
 }
 
-
+//fetchs data from API based on URL (URL changes display different data)
 async function fetchDataHelper(url) {
   const fetchData = async () => {
     try {
@@ -35,4 +36,24 @@ async function fetchDataHelper(url) {
   return(await fetchData())
 }
 
-export { parseMovieData, fetchDataHelper };
+//sort functions
+//Sort A-Z
+function sortAlphabetic( arr){
+  return arr.sort((a, b) => a.title.localeCompare(b.title))
+}
+//Sort new-old
+function sortReleaseDate(arr){
+  return arr.sort(function (a,b){
+      const date1 = new Date(a.release_date)
+      const date2 = new Date(b.release_date)
+      return date2-date1
+    }
+  )
+}
+//sort high-low
+function sortByRating(arr){
+  return arr.sort((a, b) => b.rating - a.rating)
+}
+
+
+export { parseMovieData, fetchDataHelper, sortAlphabetic, sortReleaseDate, sortByRating };

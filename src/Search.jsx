@@ -20,12 +20,6 @@ const Search = () => {
 
   }
 
-  
-  useEffect(() => {
-    
-    
-  }, []);
-
   return (
     <>
       <input type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search"/>
