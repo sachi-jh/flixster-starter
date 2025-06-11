@@ -15,7 +15,6 @@ const App = () => {
   //when load more button is clicked, increment
   const loadMoreButtonClick = () => {
       setPageCount(pageCount +1)
-      console.log(pageCount)      
   }
 
   //display whaterver is entered into the search bar results
@@ -49,6 +48,7 @@ const App = () => {
         setData(sortByRating(sortedData));
         break;
       default:
+        setPageCount(1)
         setData(parseMovieData(await fetchDataHelper(urlLoad)))
     }
   }
