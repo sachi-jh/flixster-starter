@@ -4,7 +4,7 @@ function MovieCard (props) {
     return(
         <>
         <div className='card'>
-            <img src={`https://image.tmdb.org/t/p/w400${props.img}`}/>
+            <img src={`https://image.tmdb.org/t/p/w400${props.img}`} className='card-img'/>
             <h3>{props.name}</h3>
             <p>Rating: {props.rating}</p>
         </div>

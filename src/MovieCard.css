@@ -1,5 +1,5 @@
 img {width: 250px;}
-img:hover {width: 260px;}
+.card-img:hover {width: 260px;}
 
 .card {
     text-wrap: wrap;

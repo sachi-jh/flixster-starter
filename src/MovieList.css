@@ -3,3 +3,11 @@
     width: 100%;
     flex-wrap: wrap;
 }
+
+.hidden {
+   display: none;
+}
+
+.shown {
+    display: block;
+}

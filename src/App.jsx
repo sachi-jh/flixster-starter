@@ -8,7 +8,7 @@ const App = () => {
   const [data, setData] = useState([]);
   const [pageCount, setPageCount] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortVal, setSortVal] = ('default');
+  const [sortVal, setSortVal] = useState('default');
   let searchEntered;
   const urlLoad = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageCount}&sort_by=popularity.desc`
 
@@ -35,9 +35,10 @@ const App = () => {
   }
 
   //checks the value of the select tag to determine which sort to implement
-  const selectSortValue = async() => {
+  const selectSortValue = async(val) => {
+    setSortVal(val)
     let sortedData = [...data]
-    switch(document.getElementById("selectSort").value){
+    switch(val){
       case 'alphabetic':
         setData(sortAlphabetic(sortedData));
         break;
@@ -69,7 +70,7 @@ const App = () => {
         <button onClick={searchMovie}>Search</button>
         <button onClick={clearSearch}>Clear</button>
         <h1>Movies</h1>
-        <select id="selectSort" onChange={selectSortValue}>
+        <select id="selectSort" onChange={e => selectSortValue(e.target.value)} value={sortVal}>
           <option value="default">Default</option>
           <option value="alphabetic">Alphabetic (A-Z)</option>
           <option value="releaseDate">Release Date (new-old)</option>
