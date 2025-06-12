@@ -23,13 +23,16 @@ function MovieList ({data}){
         <div>
             <div className="card-list">
                 {data.map((movie, i) =>(
-                    <div className="" key={i} onClick={()=>cardModal(i)}>
+                    <div className="" key={movie.id} onClick={()=>cardModal(movie.id)}>
                         <MovieCard name={movie.title} img={movie.image} rating={movie.rating}/>
                     </div>
                 ))}
-                <div className={isVisible ? 'shown' : 'hidden'}>
-                    <Modal data={data} index={modalID} close={close}/>
-                </div>
+                {isVisible &&
+                    <div className={isVisible ? 'shown' : 'hidden'}>
+                    <Modal data={data.find(x => x.id === modalID)} close={close}/>
+                    </div>
+                }
+                
             </div>
             
         </div>

@@ -1,20 +1,23 @@
 import genres from '../data/genres.js'
 let genreArr = genres;  //in the event the genre array isn't fetched, the backup
+let fetchedVideos;
 const apiKey = import.meta.env.VITE_API_READ_ACCESS;
 
 //reformats movie data into array with Title, Image, Rating
 function parseMovieData(data) {
   let movieArr = [];
+  
   fetchGenres()
   data.results.forEach((element) => {
     const movieObj = {
+      id: element.id,
       title: element.original_title,
       image: element.poster_path,
       rating: element.vote_average,
       release_date: element.release_date,
       backdrop_img: element.backdrop_path,
       overview: element.overview,
-      genres: genreString(element.genre_ids)
+      genres: genreString(element.genre_ids),
     };
     movieArr.push(movieObj);
   });
@@ -30,8 +33,11 @@ function genreString(arr){
     string = string + `${found.name}, `
   })
   return string
-
 }
+
+//sets video field to include the id of the trailer
+
+
 //fetchs data from API based on URL (URL changes display different data)
 async function fetchDataHelper(url) {
   const fetchData = async () => {
