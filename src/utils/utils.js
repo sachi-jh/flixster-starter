@@ -4,7 +4,7 @@ let genreArr = genres;
 //reformats movie data into array with Title, Image, Rating
 function parseMovieData(data) {
   let movieArr = [];
-  console.log(genreArr);
+  fetchGenres()
   data.results.forEach((element) => {
     const movieObj = {
       title: element.original_title,
@@ -13,13 +13,25 @@ function parseMovieData(data) {
       release_date: element.release_date,
       backdrop_img: element.backdrop_path,
       overview: element.overview,
-      genres: element.genre_ids
+      genres: genreString(element.genre_ids)
     };
+    console.log(movieObj.genres)
     movieArr.push(movieObj);
   });
   return movieArr;
 }
 
+//helper function to convert genre codes into text
+function genreString(arr){
+  let string = ""
+  let found
+  arr.forEach(genreID => {
+    found = genreArr.genres.find(i => i.id === genreID)
+    string = string + `${found.name}, `
+  })
+  return string
+
+}
 //fetchs data from API based on URL (URL changes display different data)
 async function fetchDataHelper(url) {
   const fetchData = async () => {
@@ -43,6 +55,7 @@ async function fetchDataHelper(url) {
   return(await fetchData())
 }
 
+//fetch genre information
 async function fetchGenres() {
   try {
       const response = await fetch('https://api.themoviedb.org/3/genre/movie/list?language=en',
