@@ -1,5 +1,6 @@
 import genres from '../data/genres.js'
 let genreArr = genres;  //in the event the genre array isn't fetched, the backup
+const apiKey = import.meta.env.VITE_API_READ_ACCESS;
 
 //reformats movie data into array with Title, Image, Rating
 function parseMovieData(data) {
@@ -41,7 +42,7 @@ async function fetchDataHelper(url) {
           headers: {
             accept: "application/json",
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNGUxNWE4ZWJkMDY5ZWQzMTE4NWZiMTViM2U3MGQ4NyIsIm5iZiI6MTc0OTUwNjQxNi4zODksInN1YiI6IjY4NDc1OTcwMjQyY2VkMGE5ZTM0MmI1ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Yn3WDx76rA2jgb_7-nhXBNJDv8V-l8lhEIRul_-c76o",
+              `Bearer ${apiKey}`,
           },
         }
       );
@@ -63,7 +64,7 @@ async function fetchGenres() {
           headers: {
             accept: "application/json",
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNGUxNWE4ZWJkMDY5ZWQzMTE4NWZiMTViM2U3MGQ4NyIsIm5iZiI6MTc0OTUwNjQxNi4zODksInN1YiI6IjY4NDc1OTcwMjQyY2VkMGE5ZTM0MmI1ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Yn3WDx76rA2jgb_7-nhXBNJDv8V-l8lhEIRul_-c76o",
+              `Bearer ${apiKey}`,
           },
         }
       );

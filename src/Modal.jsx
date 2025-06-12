@@ -8,7 +8,7 @@ const Modal = ({data, index, close}) => {
             <div id="Modal" className='modal'>
                     <div className="modal-content">
                         <h3>{data[index].title}</h3>
-                        <img src={`https://image.tmdb.org/t/p/w400${data[index].backdrop_img}`}/>
+                        <img src={`https://image.tmdb.org/t/p/w400${data[index].backdrop_img}`} alt={`{data[index].title} backdrop image`}/>
                         <p>Release Date: {data[index].release_date}</p>
                         <p>Overview: {data[index].overview}</p>
                         <p>Genres: {data[index].genres}</p>

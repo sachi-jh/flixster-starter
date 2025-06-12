@@ -1,5 +1,10 @@
-img {width: 250px;}
-.card-img:hover {width: 260px;}
+img {
+    width: 20vw;
+    max-width: 90%;
+}
+.card-img:hover {
+    width: 85%;
+}
 
 .card {
     text-wrap: wrap;
