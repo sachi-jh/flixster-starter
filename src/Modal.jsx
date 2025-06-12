@@ -1,6 +1,6 @@
-import { useState } from 'react'
 import './Modal.css'
 
+//modal popup when card is clicked
 const Modal = ({data, index, close}) => {
     return(
         <>

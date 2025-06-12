@@ -5,13 +5,9 @@ import './MovieList.css'
 
 
 //component that renders the whole grid of cards with movie details
-//<button onClick={loadMoreButtonClick}>Load More</button>
 function MovieList ({data}){
     const[modalID, setModalID] = useState(0);
-    //const[toggleModal, setToggleModal] = useState(false);
-
-    const [isVisible, setisVisible] = useState(false)
-    //const modal = document.getElementById("Modal")
+    const[isVisible, setisVisible] = useState(false)
 
     const close = () =>{
         setisVisible(false)

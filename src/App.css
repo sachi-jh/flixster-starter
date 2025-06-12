@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-h1{
+h1, footer{
   background-color: #282c34;
   margin-top: 0;
   display: flex;

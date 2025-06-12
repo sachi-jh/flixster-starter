@@ -5,11 +5,11 @@ import MovieList from "./MovieList";
 import Search from "./Search.jsx";
 
 const App = () => {
-  const [data, setData] = useState([]);
-  const [pageCount, setPageCount] = useState(1);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [sortVal, setSortVal] = useState('default');
-  let searchEntered;
+  const [data, setData] = useState([]); //stores the dataset that gets displayed on the main page
+  const [pageCount, setPageCount] = useState(1);  //stores the number of times load more is pressed
+  const [searchQuery, setSearchQuery] = useState(""); //stores the value inputed in the search field
+  const [sortVal, setSortVal] = useState('default');  // stores the value selected in the sort options dropdown
+  let searchEntered;  //used to capture search queary on submit
   const urlLoad = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageCount}&sort_by=popularity.desc`
 
   //when load more button is clicked, increment
@@ -21,7 +21,8 @@ const App = () => {
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   }
-  const searchMovie = async () =>{
+  const searchMovie = async (event) =>{
+    event.preventDefault()
     searchEntered = searchQuery
     const urlSearch = `https://api.themoviedb.org/3/search/movie?query=${searchEntered}&include_adult=false&language=en-US&page=1`;
     setData((parseMovieData(await fetchDataHelper(urlSearch))));
@@ -61,7 +62,7 @@ const App = () => {
     }
     setFetchedData()
     
-  }, [pageCount, ]);
+  }, [pageCount]);
 
   return (
     <div className="App">
@@ -69,9 +70,11 @@ const App = () => {
         <h1>Flixster Movies</h1>
         <div className="header-components">
           <div>
-            <input type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search"/>
-            <button onClick={searchMovie}>Search</button>
-            <button onClick={clearSearch}>Clear</button>
+            <form onSubmit={searchMovie}>
+              <input type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search"/>
+              <button type="submit">Search</button>
+              <button type="button" onClick={clearSearch}>Clear</button>
+            </form>
           </div>
           <select id="selectSort" onChange={e => selectSortValue(e.target.value)} value={sortVal}>
             <option value="default">Default</option>
@@ -85,7 +88,9 @@ const App = () => {
         <MovieList data={data} />
         <button onClick={loadMoreButtonClick}>Load More</button>
       </main>
-      <footer></footer>
+      <footer>
+        <p>Footer</p>
+      </footer>
     </div>
   );
 };

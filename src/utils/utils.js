@@ -1,5 +1,5 @@
 import genres from '../data/genres.js'
-let genreArr = genres;
+let genreArr = genres;  //in the event the genre array isn't fetched, the backup
 
 //reformats movie data into array with Title, Image, Rating
 function parseMovieData(data) {
@@ -15,7 +15,6 @@ function parseMovieData(data) {
       overview: element.overview,
       genres: genreString(element.genre_ids)
     };
-    console.log(movieObj.genres)
     movieArr.push(movieObj);
   });
   return movieArr;
