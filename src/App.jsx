@@ -66,16 +66,20 @@ const App = () => {
   return (
     <div className="App">
       <header>
-        <input type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search"/>
-        <button onClick={searchMovie}>Search</button>
-        <button onClick={clearSearch}>Clear</button>
-        <h1>Movies</h1>
-        <select id="selectSort" onChange={e => selectSortValue(e.target.value)} value={sortVal}>
-          <option value="default">Default</option>
-          <option value="alphabetic">Alphabetic (A-Z)</option>
-          <option value="releaseDate">Release Date (new-old)</option>
-          <option value="rating">Rating (high-low)</option>
-        </select>
+        <h1>Flixster Movies</h1>
+        <div className="header-components">
+          <div>
+            <input type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search"/>
+            <button onClick={searchMovie}>Search</button>
+            <button onClick={clearSearch}>Clear</button>
+          </div>
+          <select id="selectSort" onChange={e => selectSortValue(e.target.value)} value={sortVal}>
+            <option value="default">Default</option>
+            <option value="alphabetic">Alphabetic (A-Z)</option>
+            <option value="releaseDate">Release Date (new-old)</option>
+            <option value="rating">Rating (high-low)</option>
+          </select>
+        </div>
       </header>
       <main>
         <MovieList data={data} />

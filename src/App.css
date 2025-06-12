@@ -2,8 +2,9 @@
   text-align: center;
 }
 
-.App-header {
+h1{
   background-color: #282c34;
+  margin-top: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,8 +12,9 @@
   color: white;
   padding: 20px;
 }
-header {
-  
+.header-components {
+  display: flex;
+  justify-content: space-evenly;
 }
 @media (max-width: 600px) {
   .movie-card {
