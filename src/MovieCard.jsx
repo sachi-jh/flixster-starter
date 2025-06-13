@@ -3,12 +3,11 @@ import { useEffect, useState } from 'react'
 //individual cards that have movie title, image, and rating
 function MovieCard (props) {
     const[isLiked, setIsLiked] = useState(false)
-
+    const[isWatched, setIsWatched] = useState(false)
     
 
     const likeMovie = (id) => {
         if(isLiked){
-            
             const i = props.isLikedArr.indexOf(id)
             const arr = [...props.isLikedArr]
             arr.splice(i, 1)
@@ -20,9 +19,24 @@ function MovieCard (props) {
         setIsLiked(!isLiked)
     }
 
+    const watchMovie = (id) => {
+        if(isWatched){
+            const i = props.isWatchedArr.indexOf(id)
+            const arr = [...props.isWatchedArr]
+            arr.splice(i, 1)
+            props.setIsWatchedArr(arr)
+        } else {
+            props.setIsWatchedArr([...props.isWatchedArr, id])
+        }
+        setIsWatched(!isWatched)
+    }
+
     useEffect(()=>{
         if(props.isLikedArr.includes(props.id)){
             setIsLiked(true)
+        }
+        if(props.isWatchedArr.includes(props.id)){
+            setIsWatched(true)
         }
     }, [])
 
@@ -33,6 +47,7 @@ function MovieCard (props) {
             <h3>{props.name}</h3>
             <p>Rating: {props.rating}</p>
             <button onClick={()=>{likeMovie(props.id)}}><i className={`${isLiked ? "fa-solid" : "fa-regular"} fa-heart`} value="like"></i></button>
+            <button onClick={()=>{watchMovie(props.id)}}><i className={`${isWatched ? "fa-solid green" : "fa-regular"} fa-circle-play`} value="watch"></i></button>
         </div>
         </>
     )

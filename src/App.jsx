@@ -10,6 +10,7 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState(""); //stores the value inputed in the search field
   const [sortVal, setSortVal] = useState('default');  // stores the value selected in the sort options dropdown
   const [isLikedArr, setIsLikedArr] = useState([]);
+  const [isWatchedArr, setIsWatchedArr] = useState([]);
   let searchEntered;  //used to capture search queary on submit
   const urlLoad = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageCount}&sort_by=popularity.desc`
 
@@ -86,7 +87,7 @@ const App = () => {
         </div>
       </header>
       <main>
-        <MovieList data={data} isLikedArr={isLikedArr} setIsLikedArr={setIsLikedArr}/>
+        <MovieList data={data} isLikedArr={isLikedArr} setIsLikedArr={setIsLikedArr} isWatchedArr={isWatchedArr} setIsWatchedArr={setIsWatchedArr}/>
         <button onClick={loadMoreButtonClick}>Load More</button>
       </main>
       <footer>
