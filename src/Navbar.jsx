@@ -10,9 +10,10 @@ const Navbar = () => {
     }
 
     return (
-      <i class="fa-solid fa-bars " onClick={toggleSideBar}>
+      <div>
+      <i class="fa-solid fa-bars" onClick={toggleSideBar}></i>
       {showSideBar && 
-      <Sidebar className="hamburger-content">
+      <Sidebar className="hamburger-content" rootStyles={{position: "absolute"}} onClick={toggleSideBar}>
         <Menu
           menuItemStyles={{
             button: {
@@ -30,7 +31,7 @@ const Navbar = () => {
           <MenuItem component={<Link to="/liked" />}> Liked</MenuItem>
         </Menu>
       </Sidebar>}
-      </i>
+      </div>
   )
 
 }

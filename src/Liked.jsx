@@ -11,7 +11,7 @@ const Liked = ({isLikedArr, setIsLikedArr, isWatchedArr, setIsWatchedArr}) => {
     return (
     <div className="Home">
       <header>
-        <Navbar className="hamburger"/>
+        <Navbar className="hamburger-content"/>
         <div className="title-and-menu">
             <h1>Liked Movies</h1>
         </div>

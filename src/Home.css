@@ -11,15 +11,15 @@ h1, footer, .title-and-menu{
   padding: 20px;
 }
 .fa-bars{
-  display: block;
+  display: flex;
   position: absolute;
-  justify-content: end;
   color: white;
   padding: 20px;
 }
 
 .hamburger-content {
   color: #282c34;
+  position: absolute;
   height: 100vh;
   margin-left: 0;
 }
