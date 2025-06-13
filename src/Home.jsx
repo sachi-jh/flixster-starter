@@ -69,8 +69,8 @@ const Home = ({isLikedArr, isWatchedArr, setIsLikedArr, setIsWatchedArr}) => {
   return (
     <div className="Home">
       <header>
+        <Navbar className="hamburger"/>
         <div className="title-and-menu">
-          <Navbar/>
           <h1>Flixster Movies</h1>
         </div>
         <div className="header-components">

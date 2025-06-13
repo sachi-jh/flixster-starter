@@ -11,7 +11,8 @@ const Navbar = () => {
 
     return (
       <i class="fa-solid fa-bars " onClick={toggleSideBar}>
-      {showSideBar && <Sidebar className="hamburger-content">
+      {showSideBar && 
+      <Sidebar className="hamburger-content">
         <Menu
           menuItemStyles={{
             button: {

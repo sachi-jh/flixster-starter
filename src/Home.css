@@ -11,13 +11,17 @@ h1, footer, .title-and-menu{
   padding: 20px;
 }
 .fa-bars{
+  display: block;
   position: absolute;
   justify-content: end;
+  color: white;
+  padding: 20px;
 }
 
 .hamburger-content {
   color: #282c34;
-  z-index: 1;
+  height: 100vh;
+  margin-left: 0;
 }
 
 .header-components {
