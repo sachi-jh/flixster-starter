@@ -11,8 +11,10 @@ const Liked = ({isLikedArr, setIsLikedArr, isWatchedArr, setIsWatchedArr}) => {
     return (
     <div className="Home">
       <header>
-        <Navbar/>
-        <h1>Flixster Movies</h1>
+        <div className="title-and-menu">
+            <Navbar/>
+            <h1>Liked Movies</h1>
+        </div>
       </header>
       <main>
         <MovieList data={data} isLikedArr={isLikedArr} setIsLikedArr={setIsLikedArr} isWatchedArr={isWatchedArr} setIsWatchedArr={setIsWatchedArr}/>

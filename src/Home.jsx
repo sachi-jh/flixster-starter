@@ -69,8 +69,10 @@ const Home = ({isLikedArr, isWatchedArr, setIsLikedArr, setIsWatchedArr}) => {
   return (
     <div className="Home">
       <header>
-        <Navbar/>
-        <h1>Flixster Movies</h1>
+        <div className="title-and-menu">
+          <Navbar/>
+          <h1>Flixster Movies</h1>
+        </div>
         <div className="header-components">
           <Search searchMovie={searchMovie} searchQuery={searchQuery} handleSearchChange={handleSearchChange} clearSearch={clearSearch}/>
           <Select selectSortValue={selectSortValue} sortVal={sortVal}/>

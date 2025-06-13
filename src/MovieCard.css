@@ -1,5 +1,5 @@
 img {
-    width: 20vw;
+    width: 250px;
     max-width: 90%;
 }
 .card-img:hover {
@@ -13,7 +13,7 @@ img {
     height: 450px;
 }
 
-.fa-solid {
+.red {
     color:brown;
 }
 

@@ -46,7 +46,7 @@ function MovieCard (props) {
             <img src={`https://image.tmdb.org/t/p/w400${props.img}`} className='card-img' alt={`${props.name} poster`}/>
             <h3>{props.name}</h3>
             <p>Rating: {props.rating}</p>
-            <button onClick={()=>{likeMovie(props.id)}}><i className={`${isLiked ? "fa-solid" : "fa-regular"} fa-heart`} value="like"></i></button>
+            <button onClick={()=>{likeMovie(props.id)}}><i className={`${isLiked ? "fa-solid red" : "fa-regular"} fa-heart`} value="like"></i></button>
             <button onClick={()=>{watchMovie(props.id)}}><i className={`${isWatched ? "fa-solid green" : "fa-regular"} fa-circle-play`} value="watch"></i></button>
         </div>
         </>
