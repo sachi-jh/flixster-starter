@@ -8,12 +8,12 @@ function MovieCard (props) {
 
     const likeMovie = (id) => {
         if(isLiked){
-            const i = props.isLikedArr.indexOf(id)
+            const i = props.isLikedArr.indexOf(props.data.id)
             const arr = [...props.isLikedArr]
             arr.splice(i, 1)
             props.setIsLikedArr(arr)
         } else {
-            props.setIsLikedArr([...props.isLikedArr, id])
+            props.setIsLikedArr([...props.isLikedArr, props.data.find(x => x.id === id)])
         }
         
         setIsLiked(!isLiked)
@@ -21,21 +21,21 @@ function MovieCard (props) {
 
     const watchMovie = (id) => {
         if(isWatched){
-            const i = props.isWatchedArr.indexOf(id)
+            const i = props.isWatchedArr.indexOf(props.data.id)
             const arr = [...props.isWatchedArr]
             arr.splice(i, 1)
             props.setIsWatchedArr(arr)
         } else {
-            props.setIsWatchedArr([...props.isWatchedArr, id])
+            props.setIsWatchedArr([...props.isWatchedArr, props.data.find(x => x.id === id)])
         }
         setIsWatched(!isWatched)
     }
 
     useEffect(()=>{
-        if(props.isLikedArr.includes(props.id)){
+        if(props.isLikedArr.some(x => x.id === props.id)){
             setIsLiked(true)
         }
-        if(props.isWatchedArr.includes(props.id)){
+        if(props.isWatchedArr.some(x => x.id === props.id)){
             setIsWatched(true)
         }
     }, [])

@@ -5,7 +5,7 @@ import './MovieList.css'
 
 
 //component that renders the whole grid of cards with movie details
-function MovieList ({data, isLikedArr, setIsLikedArr, isWatchedArr, setIsWatchedArr}){
+function MovieList ({data, isLikedArr, setIsLikedArr, isWatchedArr, setIsWatchedArr, loadMoreButtonClick}){
     const[modalID, setModalID] = useState(0);
     const[isVisible, setisVisible] = useState(false)
 
@@ -28,11 +28,8 @@ function MovieList ({data, isLikedArr, setIsLikedArr, isWatchedArr, setIsWatched
         <div>
             <div className="card-list">
                 {data.map((movie, i) =>(
-                    <div>
                     <div className="card" key={movie.id} onClick={(event)=>openCardModal(event, movie.id)}>
-                        <MovieCard id={movie.id} name={movie.title} img={movie.image} rating={movie.rating} isLikedArr={isLikedArr} setIsLikedArr={setIsLikedArr} isWatchedArr={isWatchedArr} setIsWatchedArr={setIsWatchedArr}/>
-                    </div>
-                    
+                        <MovieCard data={data} id={movie.id} name={movie.title} img={movie.image} rating={movie.rating} isLikedArr={isLikedArr} setIsLikedArr={setIsLikedArr} isWatchedArr={isWatchedArr} setIsWatchedArr={setIsWatchedArr}/>
                     </div>
                 ))}
                 {isVisible &&
@@ -42,7 +39,7 @@ function MovieList ({data, isLikedArr, setIsLikedArr, isWatchedArr, setIsWatched
                 }
                 
             </div>
-            
+            {loadMoreButtonClick && <button id="movie-button" onClick={loadMoreButtonClick}>Load More</button>}
         </div>
         </>
     )

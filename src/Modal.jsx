@@ -54,7 +54,7 @@ const Modal = ({data, close}) => {
                                                     title="YouTube video player" 
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                                     ></iframe>}
-                        <button onClick={close}>Close</button>
+                        <button className="close" onClick={close}>Close</button>
                     </div>
             </div>)
         }
