@@ -9,12 +9,13 @@ const App = () => {
   const [pageCount, setPageCount] = useState(1);  //stores the number of times load more is pressed
   const [searchQuery, setSearchQuery] = useState(""); //stores the value inputed in the search field
   const [sortVal, setSortVal] = useState('default');  // stores the value selected in the sort options dropdown
+  const [isLikedArr, setIsLikedArr] = useState([]);
   let searchEntered;  //used to capture search queary on submit
   const urlLoad = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageCount}&sort_by=popularity.desc`
 
   //when load more button is clicked, increment
   const loadMoreButtonClick = () => {
-      setPageCount(pageCount +1)
+      setPageCount(pageCount +1);
   }
 
   //display whaterver is entered into the search bar results
@@ -22,23 +23,23 @@ const App = () => {
     setSearchQuery(event.target.value);
   }
   const searchMovie = async (event) =>{
-    event.preventDefault()
-    searchEntered = searchQuery
+    event.preventDefault();
+    searchEntered = searchQuery;
     const urlSearch = `https://api.themoviedb.org/3/search/movie?query=${searchEntered}&include_adult=false&language=en-US&page=1`;
     setData((parseMovieData(await fetchDataHelper(urlSearch))));
   }
 
   //reset page to the first page from api
   const clearSearch = async() => {
-    setPageCount(1)
-    setSearchQuery('')
-    setData(parseMovieData(await fetchDataHelper(urlLoad)))
+    setPageCount(1);
+    setSearchQuery('');
+    setData(parseMovieData(await fetchDataHelper(urlLoad)));
   }
 
   //checks the value of the select tag to determine which sort to implement
   const selectSortValue = async(val) => {
-    setSortVal(val)
-    let sortedData = [...data]
+    setSortVal(val);
+    let sortedData = [...data];
     switch(val){
       case 'alphabetic':
         setData(sortAlphabetic(sortedData));
@@ -85,7 +86,7 @@ const App = () => {
         </div>
       </header>
       <main>
-        <MovieList data={data} />
+        <MovieList data={data} isLikedArr={isLikedArr} setIsLikedArr={setIsLikedArr}/>
         <button onClick={loadMoreButtonClick}>Load More</button>
       </main>
       <footer>

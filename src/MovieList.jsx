@@ -5,7 +5,7 @@ import './MovieList.css'
 
 
 //component that renders the whole grid of cards with movie details
-function MovieList ({data}){
+function MovieList ({data, isLikedArr, setIsLikedArr}){
     const[modalID, setModalID] = useState(0);
     const[isVisible, setisVisible] = useState(false)
 
@@ -13,18 +13,26 @@ function MovieList ({data}){
         setisVisible(false)
     }
 
-    const cardModal = (index) => {
-        setModalID(index)
-        setisVisible(true)
+    const openCardModal = (event, index) => {
+        if (event.target.getAttribute("value")!=="like"){
+            setModalID(index)
+            setisVisible(true)
+            event.stopPropagation()
+        }
     }
+
+    
     
     return(
         <>
         <div>
             <div className="card-list">
                 {data.map((movie, i) =>(
-                    <div className="" key={movie.id} onClick={()=>cardModal(movie.id)}>
-                        <MovieCard name={movie.title} img={movie.image} rating={movie.rating}/>
+                    <div>
+                    <div className="" key={movie.id} onClick={(event)=>openCardModal(event, movie.id)}>
+                        <MovieCard id={movie.id} name={movie.title} img={movie.image} rating={movie.rating} isLikedArr={isLikedArr} setIsLikedArr={setIsLikedArr}/>
+                    </div>
+                    
                     </div>
                 ))}
                 {isVisible &&

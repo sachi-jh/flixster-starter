@@ -18,6 +18,7 @@ function parseMovieData(data) {
       backdrop_img: element.backdrop_path,
       overview: element.overview,
       genres: genreString(element.genre_ids),
+      liked: false
     };
     movieArr.push(movieObj);
   });
