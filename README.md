@@ -33,6 +33,7 @@ Deployed Application (**required**): [Flixster Deployed Site]([ADD_LINK_HERE](ht
   - [x] Website implements all of the following accessibility features:
     - [x] Semantic HTML
     - [x] [Color contrast](https://webaim.org/resources/contrastchecker/)
+      <img width="577" alt="image" src="https://github.com/user-attachments/assets/b21b706f-35b1-48b0-9025-a6824b1d0eea" />
     - [x] Alt text for images 
   - [x] Website implements responsive web design.
     - [x] Uses CSS Flexbox or CSS Grid
